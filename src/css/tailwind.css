@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-text: rgba(55, 65, 81, 1);
+    --color-text-sub: rgba(55, 65, 81, 0.8);
+    --color-text-dark: #d3d4de;
+    --color-text-sub-dark: #a0aec0;
+    --color-bg: #ffffff;
+    --color-bg-sub: #f7fafc;
+    --color-bg-dark: #2d3748;
+    --color-bg-sub-dark: #4a5568;
+}
