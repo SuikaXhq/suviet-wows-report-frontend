@@ -9,7 +9,7 @@ module.exports = {
         subtext: 'var(--color-text-sub)',
         subtextDark: 'var(--color-text-sub-dark)',
         bg: 'var(--color-background)',
-        bgDart: 'var(--color-background-dark)',
+        bgDark: 'var(--color-background-dark)',
         subbg: 'var(--color-background-sub)',
         subbgDark: 'var(--color-background-sub-dark)',
       }
