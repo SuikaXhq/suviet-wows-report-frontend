@@ -11,7 +11,7 @@ const props = withDefaults(
 </script>
 
 <template>
-    <div class="relative grow divide-y divide-gray-600 dark:divide-gray-700">
+    <div class="relative grow divide-y divide-gray-200 dark:divide-gray-700">
         <div class="min-h-24 relative max-h-32 p-8 text-3xl">
             <div
                 v-if="hasParent"

@@ -38,6 +38,9 @@ const darkModeStore = useDarkModeStore();
         <button
             type="button"
             class="absolute right-0 top-0 m-2 flex h-6 w-6 items-center justify-center"
+            :title="
+                darkModeStore.isDarkMode ? '切换到明亮模式' : '切换到夜间模式'
+            "
             @click="darkModeStore.toggleDarkMode()"
         >
             <i

@@ -8,9 +8,9 @@ const darkModeStore = useDarkModeStore();
 
 <template>
     <div :class="darkModeStore.isDarkMode ? 'dark' : ''">
-        <div class="bg-white dark:bg-zinc-900">
+        <div class="bg-gray-50 dark:bg-zinc-900">
             <div
-                class="relative mx-auto flex min-h-screen max-w-5xl flex-col divide-y-2 divide-gray-500 bg-white text-black shadow-lg dark:divide-gray-600 dark:bg-slate-800 dark:text-white"
+                class="relative mx-auto flex min-h-screen max-w-5xl flex-col divide-y-2 divide-gray-200 bg-white text-black shadow-lg dark:divide-gray-600 dark:bg-slate-800 dark:text-white"
             >
                 <PageHeader />
                 <RouterView />
