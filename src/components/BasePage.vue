@@ -2,12 +2,9 @@
     页面基础模版
 -->
 <script setup lang="ts">
-const props = withDefaults(
-    defineProps<{
-        hasParent: boolean;
-    }>(),
-    { hasParent: false },
-);
+const props = defineProps({
+    hasParent: Boolean,
+});
 </script>
 
 <template>
