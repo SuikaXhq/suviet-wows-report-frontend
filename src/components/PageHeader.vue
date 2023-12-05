@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
+import { useDarkModeStore } from '@/store/darkMode.store';
 
 const navList = [
     {
@@ -18,10 +19,12 @@ const navList = [
         icon: 'eva-people',
     },
 ];
+
+const darkModeStore = useDarkModeStore();
 </script>
 <template>
     <div
-        class="flex items-center justify-around p-8 text-3xl text-gray-500 dark:text-gray-400"
+        class="relative flex items-center justify-around p-8 text-3xl text-gray-500 dark:text-gray-400"
     >
         <template v-for="nav in navList">
             <RouterLink
@@ -32,6 +35,17 @@ const navList = [
                 <i :class="`eva ${nav.icon} h-8 w-8 text-center`"></i>
             </RouterLink>
         </template>
+        <button
+            type="button"
+            class="absolute right-0 top-0 m-2 flex h-6 w-6 items-center justify-center"
+            @click="darkModeStore.toggleDarkMode()"
+        >
+            <i
+                :class="`eva ${
+                    darkModeStore.isDarkMode ? 'eva-sun' : 'eva-moon'
+                } block text-center text-2xl`"
+            />
+        </button>
     </div>
 </template>
 <style scoped>
