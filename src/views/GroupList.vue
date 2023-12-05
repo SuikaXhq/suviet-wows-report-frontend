@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import BasePage from "../components/BasePage.vue";
+import BasePage from '../components/BasePage.vue';
 </script>
 
 <template>
-    <BasePage>
+    <BasePage hasParent>
         <template v-slot:header>
-            TestHeader
+            <div class="text-center">Header</div>
         </template>
-        <template v-slot:body>
-            TestBody
-        </template>
+        <template v-slot:body> TestBody </template>
     </BasePage>
 </template>
