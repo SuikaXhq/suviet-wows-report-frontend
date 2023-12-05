@@ -2,26 +2,34 @@
     页面基础模版
 -->
 <script setup lang="ts">
-const props = withDefaults(defineProps<{
-    hasParent: boolean;
-}>(), { hasParent: false });
+const props = withDefaults(
+    defineProps<{
+        hasParent: boolean;
+    }>(),
+    { hasParent: false },
+);
 </script>
 
 <template>
-    <div class="relative divide-y bg-bg dark:bg-bgDark">
-        <div class="min-h-24 relative max-h-32">
+    <div class="relative divide-y divide-gray-600 dark:divide-gray-700">
+        <div class="min-h-24 relative max-h-32 p-10 text-xl">
             <div
                 v-if="hasParent"
-                class="absolute inset-y-0 left-0 block text-left"
+                class="absolute inset-y-0 left-0 ml-4 flex items-center text-left"
             >
-                <botton @click="$router.back()" class="">
-                    <i class="eva eva-arrow-left text-4xl"></i>
-                </botton>
+                <button
+                    @click="$router.back()"
+                    type="button"
+                    title="返回"
+                    class="flex items-center justify-center text-5xl transition hover:text-gray-400"
+                >
+                    <i class="eva eva-arrow-left"></i>
+                </button>
             </div>
             <slot name="header"></slot>
         </div>
 
-        <div>
+        <div class="p-10 text-xl">
             <slot name="body"></slot>
         </div>
     </div>
