@@ -20,6 +20,11 @@ const router = createRouter({
             name: 'account',
             component: BasePage,
         },
+        {
+            path: '/group/:groupId',
+            name: 'group',
+            component: BasePage,
+        },
     ],
 });
 
