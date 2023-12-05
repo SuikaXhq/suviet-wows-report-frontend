@@ -1,4 +1,4 @@
-@import '../../public/assets/eva-icons.css';
+@import '/assets/eva-icons.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
