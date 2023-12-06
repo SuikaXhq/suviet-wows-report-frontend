@@ -10,7 +10,7 @@ const darkModeStore = useDarkModeStore();
     <div :class="darkModeStore.isDarkMode ? 'dark' : ''">
         <div class="bg-gray-50 dark:bg-zinc-900">
             <div
-                class="relative mx-auto flex min-h-screen max-w-5xl flex-col bg-white text-black shadow-lg dark:bg-slate-800 dark:text-white"
+                class="text-textMain dark:text-textMainDark relative mx-auto flex min-h-screen max-w-5xl flex-col bg-white shadow-lg dark:bg-slate-800"
             >
                 <PageHeader />
                 <RouterView v-slot="{ Component }">
