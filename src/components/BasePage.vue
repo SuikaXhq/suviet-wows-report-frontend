@@ -9,7 +9,7 @@ const props = defineProps({
 
 <template>
     <div class="relative grow divide-y divide-gray-200 dark:divide-gray-700">
-        <div class="min-h-24 relative max-h-32 p-8 text-3xl">
+        <div class="relative h-28 p-8 text-3xl">
             <div
                 v-if="hasParent"
                 class="absolute inset-y-0 left-0 ml-4 flex items-center text-left"
@@ -18,7 +18,7 @@ const props = defineProps({
                     @click="$router.back()"
                     type="button"
                     title="返回"
-                    class="flex items-center justify-center p-2 text-5xl transition hover:text-gray-400"
+                    class="flex items-center justify-center p-2 text-5xl transition hover:text-gray-500 hover:dark:text-gray-400"
                 >
                     <i class="eva eva-arrow-left"></i>
                 </button>
