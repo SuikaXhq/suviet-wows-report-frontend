@@ -8,7 +8,9 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="relative grow divide-y divide-gray-200 dark:divide-gray-700">
+    <div
+        class="relative grow cursor-default divide-y divide-gray-200 dark:divide-gray-700"
+    >
         <div class="relative h-28 p-8 text-3xl">
             <div
                 v-if="hasParent"
