@@ -56,7 +56,7 @@ onMounted(() => {
 <template>
     <BaseButton :to="routeTo">
         <div class="flex flex-row items-center justify-between">
-            <div class="pl-10 pr-20 text-2xl">
+            <div class="pl-10 pr-20 text-2xl font-bold">
                 {{ data.groupName }}
             </div>
             <div class="flex flex-col text-center text-xl">

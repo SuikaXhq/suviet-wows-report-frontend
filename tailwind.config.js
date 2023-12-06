@@ -8,7 +8,7 @@ module.exports = {
             colors: {
                 textMain: colors.black,
                 textMainDark: colors.white,
-                textSecond: colors.gray[700],
+                textSecond: colors.gray[500],
                 textSecondDark: colors.gray[400],
             },
         },
