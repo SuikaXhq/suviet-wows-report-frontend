@@ -24,7 +24,7 @@ const darkModeStore = useDarkModeStore();
 </script>
 <template>
     <div
-        class="relative flex items-center justify-around p-8 text-3xl text-gray-500 dark:text-gray-400"
+        class="relative flex h-full items-center justify-around border-b-2 border-b-gray-200 p-8 text-3xl text-gray-500 dark:border-b-gray-600 dark:text-gray-400"
     >
         <template v-for="nav in navList">
             <RouterLink
