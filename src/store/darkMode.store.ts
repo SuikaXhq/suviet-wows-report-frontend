@@ -7,4 +7,5 @@ export const useDarkModeStore = defineStore('darkMode', {
             this.isDarkMode = !this.isDarkMode;
         },
     },
+    persist: true,
 });
