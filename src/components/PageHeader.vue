@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
-import { useDarkModeStore } from '@/store/darkMode.store';
+import { useDarkModeStore } from '@/core/store/darkMode.store';
 
 const navList = [
     {

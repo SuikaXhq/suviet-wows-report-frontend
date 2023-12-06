@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import PageHeader from './components/PageHeader.vue';
-import { useDarkModeStore } from './store/darkMode.store';
+import PageHeader from '@/components/PageHeader.vue';
+import { useDarkModeStore } from '@/core/store/darkMode.store';
 
 const darkModeStore = useDarkModeStore();
 </script>
