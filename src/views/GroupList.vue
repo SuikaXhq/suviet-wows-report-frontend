@@ -3,24 +3,19 @@ import { ref, onMounted } from 'vue';
 import BasePage from '@/components/BasePage.vue';
 import GroupButton from '@/components/buttons/GroupButton.vue';
 import { getGroupList } from '@/core/api';
+import { useLED } from '@/utils/led';
 
-const loading = ref(false);
-const error = ref('');
-const groupList = ref<number[]>([]);
-
-async function loadGroupList() {
-    loading.value = true;
+const { loading, error, data, loader } = useLED<number[]>(async (data) => {
     const groupListResponse = await getGroupList();
     if (groupListResponse.status === 'success') {
-        groupList.value = groupListResponse.data;
+        data.value = groupListResponse.data;
     } else {
-        error.value = groupListResponse.error;
+        throw groupListResponse.error;
     }
-    loading.value = false;
-}
+});
 
 onMounted(() => {
-    loadGroupList();
+    loader(data);
 });
 </script>
 
@@ -35,7 +30,7 @@ onMounted(() => {
             <div class="flex flex-col" v-if="!loading">
                 <GroupButton
                     v-if="!loading"
-                    v-for="groupId in groupList"
+                    v-for="groupId in data"
                     :groupId="groupId"
                 />
             </div>
