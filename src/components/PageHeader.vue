@@ -10,7 +10,7 @@ const navList = [
     },
     {
         name: '帐号',
-        path: 'account',
+        path: 'accountList',
         icon: 'eva-person',
     },
     {

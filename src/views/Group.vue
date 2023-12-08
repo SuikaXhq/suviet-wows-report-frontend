@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import BasePage from '@/components/BasePage.vue';
-import { defineProps, ref, onMounted, reactive } from 'vue';
-import { getGroupById } from '@/core/api';
+import AccountButton from '@/components/buttons/AccountButton.vue';
+import ReportButton from '@/components/buttons/ReportButton.vue';
+import { defineProps, onMounted } from 'vue';
+import { getGroupById, getReportByGroup } from '@/core/api';
 import type { Group } from '@/types/model.types';
 import { useLED } from '@/utils/led';
 
@@ -19,6 +21,12 @@ const { loading, error, data, loader } = useLED<Group>(
         } else {
             throw groupInfoResponse.error;
         }
+        const groupReportResponse = await getReportByGroup(props.groupId);
+        if (groupReportResponse.status === 'success') {
+            data.value.dailyReport = groupReportResponse.data;
+        } else {
+            throw groupReportResponse.error;
+        }
     },
     { groupId: props.groupId },
 );
@@ -35,6 +43,26 @@ onMounted(() => {
         <template v-slot:header>
             <div class="text-center font-bold">{{ data.groupName }}</div>
         </template>
-        <template v-slot:body> </template>
+        <template v-slot:body>
+            <div class="flex flex-col gap-14">
+                <div class="flex flex-col gap-8">
+                    <div class="text-3xl font-bold">
+                        成员
+                    </div>
+                    <div class="flex flex-row flex-wrap gap-6">
+                        <AccountButton v-for="account in data.accounts" :accountId="account.accountId"
+                            :nickName="account.nickName" />
+                    </div>
+                </div>
+                <div class="flex flex-col gap-8">
+                    <div class="text-3xl font-bold">
+                        每日战报
+                    </div>
+                    <div class="flex flex-col gap-6">
+                        <ReportButton v-for="report in data.dailyReport" v-bind="report" />
+                    </div>
+                </div>
+            </div>
+        </template>
     </BasePage>
 </template>

@@ -88,11 +88,11 @@ export interface Battle {
 export interface GroupDailyReport {
     reportId: number;
     reportTime: number;
-    group: Group;
-    actorOfTheDay: Battle;
-    prisonerOfWarOfTheDay: Battle;
-    scoutBoyOfTheDay: Battle;
-    damageBoyOfTheDay: Battle;
-    antiAirBoyOfTheDay: Battle;
-    fragBoyOfTheDay: Battle;
+    group?: Group;
+    actorOfTheDay?: Battle;
+    prisonerOfWarOfTheDay?: Battle;
+    scoutBoyOfTheDay?: Battle;
+    damageBoyOfTheDay?: Battle;
+    antiAirBoyOfTheDay?: Battle;
+    fragBoyOfTheDay?: Battle;
 }

@@ -1,6 +1,3 @@
-export {
-    getGroupList,
-    getGroupById,
-    getGroupLastBattleTime,
-} from './group.api';
-export { getAccountById } from './account.api';
+export * from './group.api';
+export * from './account.api';
+export * from './report.api';
