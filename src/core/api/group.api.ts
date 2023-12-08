@@ -1,6 +1,6 @@
 import { httpService } from '@/core/http';
 import type { APIResponse } from '@/types/api.types';
-import type { Group } from '@/types/model.types';
+import type { Group, GroupDailyReport } from '@/types/model.types';
 
 export async function getGroupList(): Promise<APIResponse<number[]>> {
     const response = await httpService.get<APIResponse<number[]>>('/group');
@@ -34,5 +34,29 @@ export async function getGroupLastBattleTime(
         return response.data;
     } else {
         throw new Error('Failed to fetch group last battle time');
+    }
+}
+
+export async function getReportByGroup(groupId: number) {
+    const response = await httpService.get<APIResponse<GroupDailyReport[]>>(
+        `/group/${groupId}/report`,
+    );
+    if (response.status === 200) {
+        return response.data;
+    } else {
+        throw new Error('Failed to fetch group report');
+    }
+}
+
+export async function getBattleCountByGroup(groupId: number) {
+    const response = await httpService.get<
+        APIResponse<{
+            [reportId: number]: number;
+        }>
+    >(`/group/${groupId}/report/battleCount`);
+    if (response.status === 200) {
+        return response.data;
+    } else {
+        throw new Error('Failed to fetch group battle count');
     }
 }
