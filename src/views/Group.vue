@@ -23,27 +23,37 @@ const { loading, error, data, loader } = useLED<
     }
 >(
     async (data) => {
-        const groupInfoResponse = await getGroupById(props.groupId);
-        if (groupInfoResponse.status === 'success') {
-            data.value.groupName = groupInfoResponse.data.groupName;
-            data.value.accounts = groupInfoResponse.data.accounts;
-        } else {
-            throw groupInfoResponse.error;
-        }
-        const groupReportResponse = await getReportByGroup(props.groupId);
-        if (groupReportResponse.status === 'success') {
-            data.value.dailyReport = groupReportResponse.data;
-        } else {
-            throw groupReportResponse.error;
-        }
-        const groupBattleCountResponse = await getBattleCountByGroup(
-            props.groupId,
-        );
-        if (groupBattleCountResponse.status === 'success') {
-            data.value.battleCounts = groupBattleCountResponse.data;
-        } else {
-            throw groupBattleCountResponse.error;
-        }
+        await Promise.all([
+            (async () => {
+                const groupInfoResponse = await getGroupById(props.groupId);
+                if (groupInfoResponse.status === 'success') {
+                    data.value.groupName = groupInfoResponse.data.groupName;
+                    data.value.accounts = groupInfoResponse.data.accounts;
+                } else {
+                    throw groupInfoResponse.error;
+                }
+            })(),
+            (async () => {
+                const groupReportResponse = await getReportByGroup(
+                    props.groupId,
+                );
+                if (groupReportResponse.status === 'success') {
+                    data.value.dailyReport = groupReportResponse.data;
+                } else {
+                    throw groupReportResponse.error;
+                }
+            })(),
+            (async () => {
+                const groupBattleCountResponse = await getBattleCountByGroup(
+                    props.groupId,
+                );
+                if (groupBattleCountResponse.status === 'success') {
+                    data.value.battleCounts = groupBattleCountResponse.data;
+                } else {
+                    throw groupBattleCountResponse.error;
+                }
+            })(),
+        ]);
     },
     { groupId: props.groupId, battleCounts: {} },
 );
