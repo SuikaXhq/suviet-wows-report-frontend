@@ -22,7 +22,9 @@ onMounted(() => {
 <template>
     <BasePage>
         <template v-slot:header>
-            <div class="text-center font-bold">群组列表</div>
+            <div class="flex h-full items-center justify-center">
+                <div class="text-center font-bold">群组列表</div>
+            </div>
         </template>
         <template v-slot:body>
             <div v-if="loading">Loading...</div>

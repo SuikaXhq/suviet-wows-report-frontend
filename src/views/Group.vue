@@ -58,7 +58,11 @@ onMounted(() => {
 <template>
     <BasePage hasParent>
         <template v-slot:header>
-            <div class="text-center font-bold">{{ data.groupName }}</div>
+            <div class="flex h-full items-center justify-center">
+                <div class="text-center font-bold">
+                    {{ data.groupName }}
+                </div>
+            </div>
         </template>
         <template v-slot:body>
             <div class="flex flex-col gap-14">
