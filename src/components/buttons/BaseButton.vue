@@ -8,7 +8,7 @@ const props = defineProps<{
 <template>
     <RouterLink
         :to="props.to"
-        class="rounded-2xl border-2 border-gray-300 p-6 shadow-lg transition duration-300 hover:border-gray-500 dark:border-gray-500 dark:bg-slate-600 hover:dark:border-gray-400"
+        class="rounded-2xl border-2 border-gray-300 p-6 shadow-lg transition duration-300 hover:scale-[1.02] hover:border-gray-500 active:scale-[0.98] dark:border-gray-500 dark:bg-slate-600 hover:dark:border-gray-400"
     >
         <slot></slot>
     </RouterLink>
