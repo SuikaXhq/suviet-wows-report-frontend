@@ -54,7 +54,7 @@ onMounted(() => {
 });
 </script>
 <template>
-    <BaseButton :to="routeTo">
+    <BaseButton :to="routeTo" class="p-6">
         <div class="flex flex-row items-center justify-between text-center">
             <div class="ml-10 mr-20 w-44 text-2xl font-bold">
                 {{ data.groupName }}

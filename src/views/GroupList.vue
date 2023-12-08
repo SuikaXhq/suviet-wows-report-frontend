@@ -27,7 +27,7 @@ onMounted(() => {
         <template v-slot:body>
             <div v-if="loading">Loading...</div>
             <div v-if="error">{{ error }}</div>
-            <div class="flex flex-col" v-if="!loading">
+            <div class="flex flex-col gap-8" v-if="!loading">
                 <GroupButton
                     v-if="!loading"
                     v-for="groupId in data"
