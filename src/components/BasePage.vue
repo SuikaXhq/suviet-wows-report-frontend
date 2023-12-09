@@ -11,7 +11,7 @@ const props = defineProps({
     <div
         class="relative grow cursor-default divide-y divide-gray-200 dark:divide-gray-700"
     >
-        <div class="relative h-28 p-8 text-3xl">
+        <div class="relative h-28 text-3xl">
             <div
                 v-if="hasParent"
                 class="absolute inset-y-0 left-0 ml-4 flex items-center text-left"

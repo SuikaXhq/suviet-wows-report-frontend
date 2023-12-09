@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 const BasePage = () => import('@/components/BasePage.vue');
 const GroupList = () => import('@/views/GroupList.vue');
 const Group = () => import('@/views/Group.vue');
+const Report = () => import('@/views/Report.vue');
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,8 +38,14 @@ const router = createRouter({
         {
             path: '/report/:reportId(\\d+)',
             name: 'report',
-            component: BasePage,
+            component: Report,
             props: (route) => ({ reportId: Number(route.params.reportId) }),
+        },
+        {
+            path: '/battle/:battleId(\\d+)',
+            name: 'battle',
+            component: BasePage,
+            props: (route) => ({ battleId: Number(route.params.battleId) }),
         },
     ],
 });
