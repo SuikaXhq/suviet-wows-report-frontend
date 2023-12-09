@@ -43,7 +43,7 @@ const hitRateTorpedo = computed(() => {
     return props.shotsByTorpedoes === 0
         ? '无'
         : ((props.hitsByTorpedoes / props.shotsByTorpedoes) * 100).toFixed(2) +
-              '%';
+        '%';
 });
 const battleItems = computed(() => {
     return [
@@ -84,25 +84,20 @@ const battleItems = computed(() => {
 </script>
 <template>
     <BaseButton :to="routeTo">
-        <div class="flex flex-row items-center gap-8 p-4">
-            <div class="flex flex-col items-center gap-2">
+        <div class="flex flex-row items-center gap-2 lg:gap-8 p-2 lg:p-4">
+            <div class="flex grow flex-col items-center gap-2">
                 <div v-if="isWin" class="font-bold text-[#46dba0]">胜利!</div>
                 <div v-else class="font-bold text-[#f66301]">失败</div>
-                <div class="text-xl">{{ shipName }}</div>
-                <div class="text-base text-textSecond dark:text-textSecondDark">
+                <div class="lg:text-xl">{{ shipName }}</div>
+                <div
+                    class="text-sm max-w-[5rem] lg:max-w-full text-center lg:text-base text-textSecond dark:text-textSecondDark">
                     {{ battleTime }}
                 </div>
             </div>
             <div
-                class="grid auto-cols-fr grid-flow-col grid-rows-2 place-content-center gap-x-8 gap-y-4"
-            >
-                <div
-                    v-for="item in battleItems"
-                    class="flex w-24 flex-col items-center gap-1 text-xl"
-                >
-                    <div
-                        class="font-bold text-textSecond dark:text-textSecondDark"
-                    >
+                class="grid auto-cols-fr grid-flow-col grid-rows-2 place-content-center gap-4 lg:gap-x-8 gap-y-2 lg:gap-y-4">
+                <div v-for="item in battleItems" class="flex w-16 lg:w-24 flex-col items-center gap-1 lg:text-xl">
+                    <div class="font-bold text-textSecond dark:text-textSecondDark">
                         {{ item.title }}
                     </div>
                     <div>

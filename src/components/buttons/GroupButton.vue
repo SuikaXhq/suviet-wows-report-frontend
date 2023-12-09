@@ -54,12 +54,12 @@ onMounted(() => {
 });
 </script>
 <template>
-    <BaseButton :to="routeTo" class="p-6">
+    <BaseButton :to="routeTo" class="p-2 lg:p-6">
         <div class="flex flex-row items-center justify-between text-center">
-            <div class="ml-10 mr-20 w-44 text-2xl font-bold">
+            <div class="mx-6 lg:ml-10 lg:mr-20 lg:w-44 text-xl lg:text-2xl font-bold">
                 {{ data.groupName }}
             </div>
-            <div class="flex flex-col text-xl">
+            <div class="flex flex-col lg:text-xl">
                 <div class="text-textSecond dark:text-textSecondDark">
                     群组内帐号数
                 </div>
@@ -67,7 +67,7 @@ onMounted(() => {
                     {{ data.numOfAccounts }}
                 </div>
             </div>
-            <div class="mr-14 flex flex-col text-xl">
+            <div class="mr-6 lg:mr-14 flex flex-col lg:text-xl">
                 <div class="text-textSecond dark:text-textSecondDark">
                     最后战斗时间
                 </div>

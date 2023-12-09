@@ -20,7 +20,7 @@ const routeTo = computed(() => {
 
 <template>
     <BaseButton :to="routeTo" class="p-4">
-        <div class="text-xl">
+        <div class="lg:text-xl">
             {{ props.nickName }}
         </div>
     </BaseButton>
