@@ -75,14 +75,22 @@ onMounted(() => {
             </div>
         </template>
         <template v-slot:body>
-            <div class="flex flex-col gap-4 lg:gap-10 p-2 lg:p-8">
-                <div class="flex flex-col gap-2 lg:gap-10">
-                    <div class="flex flex-row items-center justify-between" v-for="item in reportItems">
-                        <div class="flex w-36 lg:w-56 flex-col items-center gap-4 text-textSecond dark:text-textSecondDark">
+            <div class="flex flex-col gap-4 p-2 lg:gap-10 lg:p-8">
+                <div class="flex flex-col gap-6 lg:gap-10">
+                    <div
+                        class="flex flex-row items-center justify-evenly"
+                        v-for="item in reportItems"
+                    >
+                        <div
+                            class="flex w-36 flex-col items-center gap-2 text-textSecond dark:text-textSecondDark lg:w-56 lg:gap-4"
+                        >
                             <div class="text-xl lg:text-3xl">
                                 {{ item.title }}
                             </div>
-                            <div v-if="item.battle" class="font-bold text-textMain dark:text-textMainDark">
+                            <div
+                                v-if="item.battle"
+                                class="font-bold text-textMain dark:text-textMainDark"
+                            >
                                 {{ item.battle!.account.nickName }}
                             </div>
                             <div v-else>无</div>
