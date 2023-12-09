@@ -96,7 +96,8 @@ const battleItems = computed(() => {
             </div>
             <div
                 class="grid auto-cols-fr grid-flow-col grid-rows-2 place-content-center gap-4 lg:gap-x-8 gap-y-2 lg:gap-y-4">
-                <div v-for="item in battleItems" class="flex w-16 lg:w-24 flex-col items-center gap-1 lg:text-xl">
+                <div v-for="item in battleItems"
+                    :class="`${item.title === '主炮命中' || item.title === '鱼雷命中' ? 'hidden lg:flex' : 'flex'} w-16 lg:w-24 flex-col items-center gap-1 text-sm lg:text-xl `">
                     <div class="font-bold text-textSecond dark:text-textSecondDark">
                         {{ item.title }}
                     </div>
