@@ -55,24 +55,38 @@ const reportItems = computed(() => {
 <template>
     <BaseButton :to="routeTo">
         <div
-            class="hover-trans flex max-h-12 lg:max-h-16 flex-col divide-y-2 divide-gray-300 overflow-hidden transition-all duration-500 hover:max-h-96 hover:duration-200 dark:divide-gray-500">
-            <div class="flex h-12 lg:h-16 flex-row items-center justify-between p-4">
+            class="hover-trans flex max-h-12 flex-col divide-y-2 divide-gray-300 overflow-hidden transition-all duration-500 hover:max-h-96 hover:duration-200 dark:divide-gray-500 lg:max-h-16"
+        >
+            <div
+                class="flex h-12 flex-row items-center justify-between p-4 lg:h-16"
+            >
                 <div>{{ reportTime }}</div>
-                <div class="flex flex-row text-base lg:text-xl text-textSecond dark:text-textSecondDark">
+                <div
+                    class="flex flex-row text-base text-textSecond dark:text-textSecondDark lg:text-xl"
+                >
                     <div>组队战斗</div>
-                    <div class="w-8 lg:w-12 text-center text-textMain dark:text-textMainDark">
+                    <div
+                        class="w-8 text-center text-textMain dark:text-textMainDark lg:w-12"
+                    >
                         {{ props.battleCount }}
                     </div>
                     <div>人次</div>
                 </div>
             </div>
             <div
-                class="grid grid-flow-col grid-rows-2 place-content-center gap-x-4 lg:gap-x-20 gap-y-8 p-4 text-center text-base lg:text-xl">
-                <div class="flex flex-col gap-2 text-textSecond dark:text-textSecondDark" v-for="item in reportItems">
+                class="grid grid-flow-col grid-rows-2 place-content-center gap-x-4 gap-y-8 p-4 text-center text-base lg:gap-x-20 lg:text-xl"
+            >
+                <div
+                    class="flex flex-col gap-2 text-textSecond dark:text-textSecondDark"
+                    v-for="item in reportItems"
+                >
                     <div>
                         {{ item.title }}
                     </div>
-                    <div v-if="item.nickName !== null" class="font-bold text-textMain dark:text-textMainDark">
+                    <div
+                        v-if="item.nickName !== null"
+                        class="font-bold text-textMain dark:text-textMainDark"
+                    >
                         {{ item.nickName }}
                     </div>
                     <div v-else>无</div>
