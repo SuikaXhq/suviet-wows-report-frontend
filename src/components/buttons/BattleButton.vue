@@ -90,7 +90,9 @@ const battleItems = computed(() => {
             <div class="flex grow flex-col items-center gap-2">
                 <div v-if="isWin" class="font-bold text-[#46dba0]">胜利!</div>
                 <div v-else class="font-bold text-[#f66301]">失败</div>
-                <div class="lg:text-xl">{{ shipName }}</div>
+                <div class="w-[6rem] text-center lg:w-[8rem] lg:text-xl">
+                    {{ shipName }}
+                </div>
                 <div
                     class="max-w-[5rem] text-center text-sm text-textSecond dark:text-textSecondDark lg:max-w-full lg:text-base"
                 >
