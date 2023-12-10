@@ -1,12 +1,25 @@
 import { defineStore } from 'pinia';
 
+function updateHtml() {
+    const darkModeStore = useDarkModeStore();
+    if (darkModeStore.isDarkMode) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+}
+
 export const useDarkModeStore = defineStore('darkMode', {
-    state: () => ({ isDarkMode: true }),
+    state: () => ({ isDarkMode: false }),
     actions: {
         toggleDarkMode() {
             this.isDarkMode = !this.isDarkMode;
-            document.documentElement.classList.toggle('dark');
+        },
+        updateHtml,
+    },
+    persist: {
+        afterRestore: (ctx) => {
+            updateHtml();
         },
     },
-    persist: true,
 });
