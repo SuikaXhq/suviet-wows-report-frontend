@@ -66,7 +66,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <BasePage hasParent>
+    <BasePage hasParent :loading="loading">
         <template v-slot:header>
             <div class="flex h-full items-center justify-center">
                 <div class="text-center font-bold">
@@ -75,22 +75,28 @@ onMounted(() => {
             </div>
         </template>
         <template v-slot:body>
-            <div class="flex flex-col gap-8 lg:gap-14 p-4 lg:p-8">
+            <div class="flex flex-col gap-8 p-4 lg:gap-14 lg:p-8">
                 <div class="flex flex-col gap-4 lg:gap-8">
-                    <div class="text-2xl lg:text-3xl font-bold">成员</div>
+                    <div class="text-2xl font-bold lg:text-3xl">成员</div>
                     <div class="flex flex-row flex-wrap gap-2 lg:gap-6">
-                        <AccountButton v-for="account in data.accounts" :accountId="account.accountId"
-                            :nickName="account.nickName" />
+                        <AccountButton
+                            v-for="account in data.accounts"
+                            :accountId="account.accountId"
+                            :nickName="account.nickName"
+                        />
                     </div>
                 </div>
                 <div class="flex flex-col gap-4 lg:gap-8">
-                    <div class="text-2xl lg:text-3xl font-bold">每日战报</div>
+                    <div class="text-2xl font-bold lg:text-3xl">每日战报</div>
                     <div class="flex flex-col gap-4">
-                        <ReportButton v-for="report in data.dailyReport" v-bind="{
-                            ...report,
-                            battleCount:
-                                data.battleCounts[report.reportId] ?? 0,
-                        }" />
+                        <ReportButton
+                            v-for="report in data.dailyReport"
+                            v-bind="{
+                                ...report,
+                                battleCount:
+                                    data.battleCounts[report.reportId] ?? 0,
+                            }"
+                        />
                     </div>
                 </div>
             </div>
